@@ -5,7 +5,6 @@
             flat
             tile
             height="150px"
-            color="red"
             >
                 <v-toolbar dense class="toolbar">
                     <v-container class="content-toobar">
@@ -23,8 +22,23 @@
                     </v-container>
                     
                 </v-toolbar>
-                <v-container>
-                    
+                <v-container class="pa-0">
+                    <b-navbar toggleable="lg">
+                        <b-navbar-brand href="/home">
+                            <img src="@/assets/logo-dobue.png" alt="Logo-Dobue" class="logo-dobue">
+                        </b-navbar-brand>
+                            <b-collapse id="nav-collapse" is-nav>
+                                <!-- Right aligned nav items -->
+                                <b-nav class="ml-auto">
+                                    <b-nav-item ref="/home">HOME</b-nav-item>
+                                    <b-nav-item>SOBRE</b-nav-item>
+                                    <b-nav-item>PRODUTOS</b-nav-item>
+                                    <b-nav-item>CLIIENTES</b-nav-item>
+                                    <b-nav-item>REPRESENTANTES</b-nav-item>
+                                    <b-nav-item>CONTATO</b-nav-item>
+                                </b-nav>
+                            </b-collapse>
+                    </b-navbar>
                 </v-container>
             </v-card>
         
@@ -51,5 +65,17 @@
     }
     .content-toobar{
         display: flex;
+    }
+    .logo-dobue{
+        top:0;
+        width: 253px;
+    }
+    .navbar{
+        padding: 0 1rem;
+    }
+    .nav-link{
+        font-size: 12px;
+        color: #000;
+        font-weight: 600;
     }
 </style>
