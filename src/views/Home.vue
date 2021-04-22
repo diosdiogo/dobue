@@ -27,21 +27,41 @@
                         class="d-flex img-fluid"
                         width="300"
 
-                        src="https://picsum.photos/1024/480/?image=55"
+                      src="@/assets/carosel1.png"
                         alt="image slot"
                       >
                     <img
                         class="d-flex img-fluid"
                         width="300"
 
-                        src="https://picsum.photos/1024/480/?image=58"
+                        src="@/assets/carosel2.png"
                         alt="image slot"
                       >
 
                     </template>
                 </b-carousel-slide>
-        </b-carousel>
+            </b-carousel>
+              <b-row style="background-color:#F3F3F3">
+                  <b-col>
+                  <b-embed
+                      type="iframe"
+                      aspect="16by9"
+                      src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+                      allowfullscreen
+                    ></b-embed>
+                  </b-col>
+                  <b-col>
+                      <h1 class="font-header">NOSSA MISSÃO</h1>
+                      <span>
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+                            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, 
+                            content here', making it look like readable English.
+                      </span>
+                  </b-col>
+              </b-row>
          </v-container>
+         
+            
       </div>
 </template>
 
