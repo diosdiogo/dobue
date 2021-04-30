@@ -1,20 +1,5 @@
 <template>
     <div>
-       
-        <!-- <v-carousel hide-delimiters>
-            <v-carousel-item>
-            <font-awesome-icon :icon="['fas', 'angle-left']" class="icon" />
-                    <v-row
-                        class="fill-height"
-                        align="center"
-                        justify="center"
-                        >
-                        <div class="display-3">
-                            <img style="width:100%" src="@/assets/Painel_Toronto.jpg" alt="Painel Toronto">
-                        </div>
-                    </v-row>
-            </v-carousel-item>
-        </v-carousel> -->
         <b-carousel 
             id="carousel-1"
             v-model="slide"
@@ -42,8 +27,8 @@
                 sliding: null,
                 imageCarousel:[
                     {src: 'assets/Painel_Toronto.jpg', alt: "Painel Toronto"},
-                    {src: 'assets/Painel_Munique.jpg', alt: "Painel Monique"},
-                    {src: 'assets/Painel_Istambul.jpg', alt: "Painel Istambul"},
+                    // {src: 'assets/Painel_Munique.jpg', alt: "Painel Monique"},
+                    // {src: 'assets/Painel_Istambul.jpg', alt: "Painel Istambul"},
                 ]
             }
         },

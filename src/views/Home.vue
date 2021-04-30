@@ -16,7 +16,7 @@
                 v-model="slide"
                 :interval="4000"
                 controls
-                img-width="300"
+                img-width="600"
                 img-height="180"
                 style="text-shadow: 1px 1px 2px #333;"
                 
@@ -41,40 +41,53 @@
                     </template>
                 </b-carousel-slide>
             </b-carousel>
-              <b-row style="background-color:#F3F3F3">
+          </v-container>
+          <v-main style="background-color:#F3F3F3">
+              <v-container>
+               <b-row>
                   <b-col>
-                  <b-embed
-                      type="iframe"
-                      aspect="16by9"
-                      src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-                      allowfullscreen
-                    ></b-embed>
+                    <div class="video-home">
+                      <b-embed
+                        type="iframe"
+                        aspect="16by9"
+                        src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+                        allowfullscreen
+                      ></b-embed> 
+                    </div>
+                     
                   </b-col>
                   <b-col>
-                      <h1 class="font-header">NOSSA MISSÃO</h1>
-                      <span>
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-                            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, 
-                            content here', making it look like readable English.
-                      </span>
+                    <div>
+                      <b-card title="NOSSA MISSÃO" id="card-missao">
+
+                        <b-card-text>
+                         Nossa missão é ter orgulho no que fazemos, 
+                         fabricar nossos móveis com a máxima qualidade e oferecer conforto e 
+                         segurança aos nossos clientes.
+                        </b-card-text>
+                      </b-card>
+                    </div>
                   </b-col>
-              </b-row>
-         </v-container>
-         
-            
+                </b-row>
+              </v-container>
+          </v-main>
+        <Rodape />
       </div>
 </template>
 
 <script>
+//https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
   import Toolbar from '../components/Toolbar'
   import Carousel from '../components/Carousel'
+  import Rodape from '../components/Rodape'
 
   export default {
     name: 'App',
 
     components: {
       Toolbar,
-      Carousel
+      Carousel,
+      Rodape
     },
     data (){
      
@@ -98,8 +111,14 @@
       color: #512B42;
       font-family: system-ui;
   }
+  .font-header-2{
+    font-size: 30px;
+    font-weight: 900;
+    color: #512B42;
+    font-family: system-ui;
+  }
   #carousel-index .carousel-inner {
-    width: 84%;
+    width: 94%;
     margin: 0 auto;
   }
   #carousel-index .carousel-item {
@@ -112,6 +131,12 @@
     width: 50%;
     margin: 0 auto;
   }
+  #carousel-index .carousel-control-prev{
+    width:2%;
+  }
+  #carousel-index .carousel-control-next{
+    width:2%;
+  }
   #carousel-index .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
   }
@@ -120,5 +145,20 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e")
   }
 
-  
+  .card-missao, .card{
+    background-color:transparent !important;
+    border: none !important;
+    padding:40px
+  }margin-left: 15px;
+  .video-home{
+    
+    padding:25px;
+    
+  }
+  .card-missao, .card-title{
+    font-size: 25px;
+    font-weight: 900;
+    color: #512B42;
+    font-family: system-ui;
+  }
 </style>
