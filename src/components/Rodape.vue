@@ -99,6 +99,8 @@ export default {
 <style scopet>
 .rodape{
     color:#fff;
+    bottom:0;
+    width:100%;
 }
 .rodape-1{
     background-color:#512B42;

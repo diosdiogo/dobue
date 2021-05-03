@@ -27,8 +27,8 @@
                 sliding: null,
                 imageCarousel:[
                     {src: 'assets/Painel_Toronto.jpg', alt: "Painel Toronto"},
-                    // {src: 'assets/Painel_Munique.jpg', alt: "Painel Monique"},
-                    // {src: 'assets/Painel_Istambul.jpg', alt: "Painel Istambul"},
+                    {src: 'assets/Painel_Munique.jpg', alt: "Painel Monique"},
+                    {src: 'assets/Painel_Istambul.jpg', alt: "Painel Istambul"},
                 ]
             }
         },

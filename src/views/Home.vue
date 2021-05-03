@@ -42,7 +42,7 @@
                 </b-carousel-slide>
             </b-carousel>
           </v-container>
-          <v-main style="background-color:#F3F3F3">
+          <v-main style="background-color:#F3F3F3;">
               <v-container>
                <b-row>
                   <b-col>
@@ -73,24 +73,23 @@
           </v-main>
         <Rodape />
       </div>
-</template>
+</template> id: "11"
+
 
 <script>
 //https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
   import Toolbar from '../components/Toolbar'
   import Carousel from '../components/Carousel'
   import Rodape from '../components/Rodape'
-
+  
   export default {
     name: 'App',
-
     components: {
       Toolbar,
       Carousel,
       Rodape
     },
     data (){
-     
       return {
           slide: 0,
           sliding: null,
@@ -98,10 +97,10 @@
               {src: 'assets/Painel_Toronto.jpg', alt: "Painel Toronto"},
               {src: 'assets/Painel_Munique.jpg', alt: "Painel Monique"},
               {src: 'assets/Painel_Istambul.jpg', alt: "Painel Istambul"},
-          ]
+          ],
       }
-    }
-    
+    },
+      
 };
 </script>
 <style>

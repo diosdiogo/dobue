@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from '@/router'
 import vuetify from './plugins/vuetify'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
@@ -29,6 +33,8 @@ library.add(faInstagram)
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+
+Vue.use(VueAxios, axios); 
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

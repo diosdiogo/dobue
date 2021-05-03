@@ -25,7 +25,7 @@
         </v-card>
         <v-container class="pa-0">
             <b-navbar toggleable="lg">
-                <b-navbar-brand href="/home">
+                <b-navbar-brand href="/">
                     <img src="@/assets/logo-dobue.png" alt="Logo-Dobue" class="logo-dobue">
                 </b-navbar-brand>
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -37,7 +37,7 @@
                         <b-nav-item>PRODUTOS</b-nav-item>
                         <b-nav-item to="/clientes">CLIIENTES</b-nav-item>
                         <b-nav-item>REPRESENTANTES</b-nav-item>
-                        <b-nav-item>CONTATO</b-nav-item>
+                        <b-nav-item to="/contato">CONTATO</b-nav-item>
                     </b-navbar-nav>
                 </b-collapse>
             </b-navbar>

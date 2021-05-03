@@ -7,10 +7,17 @@
             <!---------------------------------------------------//
             //          História                                //
             ---------------------------------------------------->
-                <b-row class="text-center">
-                    <b-col><h1 class="font-header">clientes</h1></b-col>
+                <b-row class="text-center" style="margin-top: 15px;">
+                    <b-col>
+                        <h1 class="font-header">clientes</h1>
+                        <span>It is a long established fact that a reader will be distracted by</span>
+                    </b-col>
                 </b-row>
-               
+                <b-row>
+                    <b-col cols="4" v-for="(item,i) in clientes" :key="i">
+                        <img :src="require(`@/`+item.src)" :alt="item.alt" class="image-cliente">
+                    </b-col>
+                </b-row>
 
                 <!---------------------------------------------------//
                 //          Missão visão valores                    //
@@ -37,7 +44,10 @@
     data (){
      
       return {
-          
+          clientes:[
+              {src:'assets/logo-esplanada-negativo-01.png', alt:'esplanada'},
+              {src:'assets/Multiloja-LogoAzulsemBox.png', alt:'esplanada'}
+          ]
       }
     }
     
@@ -45,10 +55,14 @@
 </script>
 <style scoped>
  .font-header{
-    font-size: 30px;
-    font-weight: 900;
+    font-size: 40px;
+    font-weight: 700;
     color: #512B42;
     font-family: system-ui;
     text-transform: uppercase;
+  }
+  .image-cliente{
+    width: 100%;
+    vertical-align: top;
   }
 </style>
