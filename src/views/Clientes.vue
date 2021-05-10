@@ -13,7 +13,7 @@
                         <span>It is a long established fact that a reader will be distracted by</span>
                     </b-col>
                 </b-row>
-                <b-row>
+                <b-row style="margin-top: 15px; margin-bottom:15px;">
                     <b-col cols="4" v-for="(item,i) in clientes" :key="i">
                         <img :src="require(`@/`+item.src)" :alt="item.alt" class="image-cliente">
                     </b-col>
@@ -45,8 +45,9 @@
      
       return {
           clientes:[
-              {src:'assets/logo-esplanada-negativo-01.png', alt:'esplanada'},
-              {src:'assets/Multiloja-LogoAzulsemBox.png', alt:'esplanada'}
+              {src:'assets/logo-esplanada-negativo.png', alt:'esplanada'},
+              {src:'assets/MultilojaLogoAzulsemBox.png', alt:'esplanada'},
+              {src: 'assets/logo-benoit.png', alt:'Benolt'}
           ]
       }
     }
