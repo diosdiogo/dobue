@@ -82,14 +82,7 @@
 </script>
 <style scoped>
 
-  .font-header{
-    font-size: 30px;
-    font-weight: 900;
-    color: #512B42;
-    font-family: system-ui;
-    text-transform: uppercase;
-  }
-    .text-sobre{
+  .text-sobre{
         text-align: justify;
         font-size: 16px;
         vertical-align: baseline;

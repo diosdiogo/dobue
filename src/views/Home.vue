@@ -42,7 +42,7 @@
                 </b-carousel-slide>
             </b-carousel>
           </v-container>
-          <v-main style="background-color:#F3F3F3;">
+          <v-main style="background-color:#F3F3F3; margin-top: 15px;">
               <v-container>
                <b-row>
                   <b-col>

@@ -54,7 +54,7 @@
     
 };
 </script>
-<style scoped>
+<style>
  .font-header{
     font-size: 40px;
     font-weight: 700;

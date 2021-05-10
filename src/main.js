@@ -5,6 +5,8 @@ import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import * as VueGoogleMap from 'vuejs-google-maps'
+import 'vuejs-google-maps/dist/vuejs-google-maps.css'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -13,12 +15,14 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
+//Map
 
 //icones
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faPhoneAlt, faEnvelope, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
+
 
 
 library.add(faPhoneAlt)
@@ -36,7 +40,15 @@ Vue.use(IconsPlugin)
 
 Vue.use(VueAxios, axios); 
 
+Vue.use(VueGoogleMap, {
+  load: {
+      apiKey: 'AIzaSyCnrnzGUpdKF-ury-wWG8uzWzU6reZrP8s',
+  },
+  installComponents: false
+})
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('google-map', VueGoogleMap.Map);
 
 Vue.config.productionTip = false
 
