@@ -67,22 +67,17 @@
                         <!-- -------------------------------------------------//
                         // Mapa                                              //
                         //----------------------------------------------------->
-                      <GoogleMap
-                            :center="center"
-                            :zoom="7"
-                            map-type-id="terrain"
-                        >
-                            <GoogleMarker
-                                :clickable="true"
-                                :draggable="true"
-                                :key="'m'+index.toString()"
-                                :position="m.position"
-                                @click="center=m.position"
-                                v-for="(m, index) in markers"
-                            >
 
-                            </GoogleMarker>
-                        </GoogleMap>
+                        <GmapMap 
+                            :center= "center"
+                            :zoom="12"
+                            style="width: 100%; height: 100%"
+                        >
+                            <GMapCluster :zoomOnClick="true">
+                                <GMapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="true"
+                                    @click="center = m.position" />
+                            </GMapCluster>
+                        </GmapMap>
                     </b-col>
                  </b-row>
             </v-container>
@@ -94,57 +89,36 @@
 //https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
     import Toolbar from '../components/Toolbar'
     import Rodape from '../components/Rodape'
-   import { gmapMap } from 'vue-google-maps'
+
    export default {
         name: 'App',
         components: {
             Toolbar,
             Rodape,
-            gmapMap
         },
         data (){
-            
             return {
-                
-                form: {
+                form: { 
                     nome:       '',
                     email:      '',
                     assunto:    '',
                     msg:        ''
                 },
 
-                center: { lat: 51.093048, lng: 6.84212 },
+                center: { lat: -23.3229379, lng: -51.5577118 },
                 markers: [
                     {
-                    position: {
-                        lat: 51.093048,
-                        lng: 6.84212
-                    }
+                        position: {
+                            lat: -23.3229360, 
+                            lng: -51.5577118
+                        }
                     },
-                    {
-                    position: {
-                        lat: 51.198429,
-                        lng: 6.69529
-                    }
-                    },
-                    {
-                    position: {
-                        lat: 51.165218,
-                        lng: 7.067116
-                    }
-                    },
-                    {
-                    position: {
-                        lat: 51.09256,
-                        lng: 6.84074
-                    }
-                    }
                 ]
             }
         },
-         computed: {
+        computed: {
 
-},
+        },
 
          methods: {
             onSubmit(event) {

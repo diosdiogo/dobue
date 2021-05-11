@@ -22,7 +22,8 @@ const routes = [
     {
         name: 'clientes',
         path: '/clientes',
-        component: Clientes
+        component: Clientes,
+        props: true 
     },
     {
         name: 'contato',

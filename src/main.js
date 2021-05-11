@@ -4,9 +4,8 @@ import router from '@/router'
 import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
-import * as VueGoogleMap from 'vuejs-google-maps'
-import 'vuejs-google-maps/dist/vuejs-google-maps.css'
+import * as VueGoogleMaps from 'vue2-google-maps'
+import GmapCluster from 'vue2-google-maps/dist/components/cluster'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -40,15 +39,19 @@ Vue.use(IconsPlugin)
 
 Vue.use(VueAxios, axios); 
 
-Vue.use(VueGoogleMap, {
+Vue.use(VueGoogleMaps, {
   load: {
-      apiKey: 'AIzaSyCnrnzGUpdKF-ury-wWG8uzWzU6reZrP8s',
+    key: 'AIzaSyCnrnzGUpdKF-ury-wWG8uzWzU6reZrP8s',
+      libraries: "places, maps"
   },
   installComponents: false
 })
 
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.component('google-map', VueGoogleMap.Map);
+Vue.component('GmapMap', VueGoogleMaps.Map);
+Vue.component('GMapMarker', VueGoogleMaps.Map);
+Vue.component('GMapCluster',  GmapCluster);
 
 Vue.config.productionTip = false
 
