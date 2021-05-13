@@ -10,8 +10,8 @@
                     <font-awesome-icon :icon="['fas', 'phone-alt']" class="icon"/> 
                     <span style="margin-right:8%;"> ( 43 ) 3151-1611 </span>
 
-                    <font-awesome-icon :icon="['far', 'clock']" class="icon"/> 
-                    <span> Seg - Sex: 07:45 – 12:00 | 13:15 – 17:45 </span>
+                    <font-awesome-icon :icon="['far', 'clock']" class="icon header-fone"/> 
+                    <span class="header-fone"> Seg - Sex: 07:45 – 12:00 | 13:15 – 17:45 </span>
                     
                     <v-spacer></v-spacer>
                     <font-awesome-icon :icon="['fas', 'envelope']" class="icon"/> 
@@ -80,6 +80,11 @@
     @media (max-width: 980px) {
         .logo-dobue{
             width: 150px !important;
+        }
+    }
+    @media(max-width: 760px){
+        .header-fone{
+            display: none;
         }
     }
 </style>

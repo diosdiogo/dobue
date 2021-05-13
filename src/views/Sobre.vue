@@ -10,7 +10,7 @@
                 <b-row class="text-center">
                     <b-col><h1 class="font-header">nossa historia</h1></b-col>
                 </b-row>
-                <b-row>
+                <b-row class="sobre-missao">
                     <b-col class="text-sobre">
                             <span>Fundada em 2.005, a Dobuê Movelaria iniciou suas atividades nas instalações de uma antiga granja, na cidade de Sabáudia, interior do estado do Paraná, na época a empresa contava com uma pequena equipe e estrutura física limitada, a produção era exclusivamente dedicada à cabeceiras para box.<br />
                             Em junho de 2.007, a empresa mudou-se para instalações próprias, e desde então investe ininterruptamente em tecnologia, estrutura e na equipe de trabalhadores. <br />
@@ -27,7 +27,7 @@
                 <!---------------------------------------------------//
                 //          Missão visão valores                    //
                 ---------------------------------------------------->
-                <b-row>
+                <b-row class="sobre-card-dobue">
                   <b-col>
                       <b-card class="card-sobre" title="nossa MISSÃO">
                         <b-card-text>
@@ -51,10 +51,10 @@
                       </b-card-text>
                     </b-card>
                   </b-col>
-
                 </b-row>
             </v-container>
         </v-main>
+
       <Rodape />
     </div>
 </template>
@@ -102,4 +102,14 @@
     .card-text{
       text-align: justify;
     }
+
+    @media(max-width: 760px){
+      .sobre-missao{
+        display: block;
+      }
+      .sobre-card-dobue{
+        display: flow-root;
+      }
+    }
+    
 </style>

@@ -12,7 +12,7 @@
                 <!-- -------------------------------------------------//
                 // Formulário de contato e mapa                       //
                 //----------------------------------------------------->
-                 <b-row style="margin-top: 15px">
+                 <b-row style="margin-top: 15px" class="contato-row">
                     <b-col>
                         <!-- -------------------------------------------------//
                         // Formulário                                        //
@@ -68,16 +68,11 @@
                         // Mapa                                              //
                         //----------------------------------------------------->
 
-                        <GmapMap 
-                            :center= "center"
-                            :zoom="12"
-                            style="width: 100%; height: 100%"
-                        >
-                            <GMapCluster :zoomOnClick="true">
-                                <GMapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="true"
-                                    @click="center = m.position" />
-                            </GMapCluster>
-                        </GmapMap>
+                       <Map
+  :center="{lat:10, lng:10}"
+  :map-type-id="terrain"
+  :zoom="7"
+></Map>
                     </b-col>
                  </b-row>
             </v-container>
@@ -89,12 +84,15 @@
 //https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
     import Toolbar from '../components/Toolbar'
     import Rodape from '../components/Rodape'
+    import {load, Map} from 'vue2-google-maps'
 
+    load('key', 'AIzaSyCnrnzGUpdKF-ury-wWG8uzWzU6reZrP8s');
    export default {
         name: 'App',
         components: {
             Toolbar,
             Rodape,
+            Map
         },
         data (){
             return {
@@ -139,4 +137,18 @@
         height: 44px;
         background-color: #512B42
     }
+    .map-contato{
+        width: 100%; 
+        height: 100%
+    }
+    @media(max-width: 760px){
+        .contato-row{
+            display: flow-root;
+        }
+        .map-contato{
+            width: 100%; 
+            height: 250px;
+        }
+    }
+    
 </style>

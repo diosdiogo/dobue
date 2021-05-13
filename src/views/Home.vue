@@ -37,14 +37,13 @@
                         src="@/assets/carosel2.png"
                         alt="image slot"
                       >
-
-                    </template>
+                  </template>
                 </b-carousel-slide>
             </b-carousel>
           </v-container>
           <v-main style="background-color:#F3F3F3; margin-top: 15px;">
               <v-container>
-               <b-row>
+               <b-row class="home-missao">
                   <b-col>
                     <div class="video-home">
                       <b-embed
@@ -82,12 +81,14 @@
   import Carousel from '../components/Carousel'
   import Rodape from '../components/Rodape'
   
+  
   export default {
     name: 'App',
     components: {
       Toolbar,
       Carousel,
-      Rodape
+      Rodape,
+      
     },
     data (){
       return {
@@ -147,8 +148,8 @@
   .card-missao, .card{
     background-color:transparent !important;
     border: none !important;
-    padding:40px
-  }margin-left: 15px;
+    padding:40px;
+  }
   .video-home{
     
     padding:25px;
@@ -160,4 +161,18 @@
     color: #512B42;
     font-family: system-ui;
   }
+  
+@media(max-width: 760px){
+  .home-missao{
+      display: block !important;
+  }
+  .card-missao, .card{
+    padding: 0;
+    text-align: justify;
+  }
+  .text-center{
+    width: 100% !important;
+  }
+}
+  
 </style>
