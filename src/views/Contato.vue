@@ -68,11 +68,9 @@
                         // Mapa                                              //
                         //----------------------------------------------------->
 
-                       <Map
-  :center="{lat:10, lng:10}"
-  :map-type-id="terrain"
-  :zoom="7"
-></Map>
+                        <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.916004405069!2d-51.557155485549586!3d-23.31880615856341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecb058572434ff%3A0xa67a672feeeb754a!2sAv.%20Pres.%20Campos%20S%C3%A1les%2C%2045%20-%20Industrial%20Novo%2C%20Sab%C3%A1udia%20-%20PR%2C%2086720-000!5e0!3m2!1spt-BR!2sbr!4v1620981495304!5m2!1spt-BR!2sbr" 
+                        class="map-contato" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </b-col>
                  </b-row>
             </v-container>
@@ -84,15 +82,12 @@
 //https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
     import Toolbar from '../components/Toolbar'
     import Rodape from '../components/Rodape'
-    import {load, Map} from 'vue2-google-maps'
 
-    load('key', 'AIzaSyCnrnzGUpdKF-ury-wWG8uzWzU6reZrP8s');
    export default {
         name: 'App',
         components: {
             Toolbar,
             Rodape,
-            Map
         },
         data (){
             return {
@@ -118,7 +113,7 @@
 
         },
 
-         methods: {
+        methods: {
             onSubmit(event) {
                 event.preventDefault()
                 alert(JSON.stringify(this.form))

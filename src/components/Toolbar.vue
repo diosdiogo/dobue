@@ -36,7 +36,7 @@
                         <b-nav-item to="/sobre">SOBRE </b-nav-item>
                         <b-nav-item>PRODUTOS</b-nav-item>
                         <b-nav-item to="/clientes">CLIIENTES</b-nav-item>
-                        <b-nav-item>REPRESENTANTES</b-nav-item>
+                        <b-nav-item to="/representante">REPRESENTANTES</b-nav-item>
                         <b-nav-item to="/contato">CONTATO</b-nav-item>
                     </b-navbar-nav>
                 </b-collapse>
