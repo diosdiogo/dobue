@@ -1,0 +1,59 @@
+<template>
+    <div>
+      <Toolbar style="margin-bottom:15px;"/>
+        <v-main style="background-color:#F3F3F3">
+            <v-container class="pb-5">
+
+            <!---------------------------------------------------//
+            //          História                                //
+            ---------------------------------------------------->
+                <b-row class="text-center" style="margin-top: 15px;">
+                    <b-col>
+                        <h1 class="font-header">produtos</h1>
+                        <span>It is a long established fact that a reader will be distracted by</span>
+                    </b-col>
+                </b-row>
+                <b-row style="margin-top: 15px; margin-bottom:15px;">
+                    
+                </b-row>
+               
+            </v-container>
+        </v-main>
+      <Rodape />
+    </div>
+</template>
+
+<script>
+//https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
+  import Toolbar from '../components/Toolbar'
+  import Rodape from '../components/Rodape'
+
+  export default {
+    name: 'App',
+
+    components: {
+      Toolbar,
+      Rodape
+    },
+    data (){
+     
+      return {
+          
+      }
+    }
+    
+};
+</script>
+<style>
+ .font-header{
+    font-size: 40px;
+    font-weight: 700;
+    color: #512B42;
+    font-family: system-ui;
+    text-transform: uppercase;
+  }
+  .image-cliente{
+    width: 100%;
+    vertical-align: top;
+  }
+</style>

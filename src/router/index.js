@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from '@/views/Home'
 import Sobre from '@/views/Sobre'
+import Produto from '@/views/Produto'
 import Clientes from '@/views/Clientes'
 import Contato from '@/views/Contato'
 import Representante from '@/views/Representante'
@@ -19,6 +20,11 @@ const routes = [
         name: 'sobre',
         path: '/sobre',
         component: Sobre
+    },
+    {
+        name: 'produto',
+        path: '/produto',
+        component: Produto
     },
     {
         name: 'clientes',

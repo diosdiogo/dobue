@@ -16,8 +16,8 @@
                     <v-spacer></v-spacer>
                     <font-awesome-icon :icon="['fas', 'envelope']" class="icon"/> 
                     <span style="margin-right:15px;"> contato@dobue.com.br</span>
-                    <font-awesome-icon style="margin-right:15px;" :icon="['fab', 'facebook-f']" class="icon"/> 
-                    <font-awesome-icon :icon="['fab', 'instagram']" class="icon"/> 
+                    <a href=""><font-awesome-icon style="margin-right:15px;" :icon="['fab', 'facebook-f']" class="icon"/></a>
+                    <a href=""><font-awesome-icon :icon="['fab', 'instagram']" class="icon"/></a>
                 </v-container>
                 
                 </v-toolbar>
@@ -34,7 +34,7 @@
                     <b-navbar-nav class="ml-auto">
                         <b-nav-item to="/">HOME</b-nav-item>
                         <b-nav-item to="/sobre">SOBRE </b-nav-item>
-                        <b-nav-item>PRODUTOS</b-nav-item>
+                        <b-nav-item to="/produto">PRODUTOS</b-nav-item>
                         <b-nav-item to="/clientes">CLIIENTES</b-nav-item>
                         <b-nav-item to="/representante">REPRESENTANTES</b-nav-item>
                         <b-nav-item to="/contato">CONTATO</b-nav-item>
