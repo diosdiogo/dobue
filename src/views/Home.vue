@@ -1,7 +1,7 @@
 <template>
     <div>
         <Toolbar style="margin-bottom:15px;"/>
-        <Carousel style="margin-bottom:15px;"/>
+        <Carousel style="margin-bottom:35px;"/>
 
          <v-container class="pa-0">
             <b-row class="text-center">
@@ -11,7 +11,7 @@
                 <b-col><span class="font-description">Nossos produtos, cabeceiras, painéis, mesas, cadeiras e buffets.</span></b-col>
             </b-row>
 
-             <b-carousel 
+             <!--b-carousel 
                 id="carousel-index"
                 v-model="slide"
                 :interval="4000"
@@ -21,27 +21,39 @@
                 style="text-shadow: 1px 1px 2px #333;"
                 
               >
-                <b-carousel-slide > 
+                <b-carousel-slide class="produto-slide"> 
                   <template #img>
                       <img
                         class="d-flex img-fluid"
                         width="300"
-
-                      src="@/assets/carosel1.png"
+                        src="@/assets/carosel1.png"
                         alt="image slot"
                       >
                     <img
                         class="d-flex img-fluid"
                         width="300"
-
                         src="@/assets/carosel2.png"
+                        alt="image slot"
+                      >
+                  
+                    <img
+                        class="d-flex img-fluid"
+                        width="300"
+                        src="@/assets/carosel3.jpg"
+                        alt="image slot"
+                      >
+                    <img
+                        class="d-flex img-fluid"
+                        width="300"
+                        src="@/assets/carosel4.jpg"
                         alt="image slot"
                       >
                   </template>
                 </b-carousel-slide>
-            </b-carousel>
+            </b-carousel-->
+            <CarouselProdutoHome />
           </v-container>
-          <v-main style="background-color:#F3F3F3; margin-top: 15px;">
+          <v-main style="background-color:#F3F3F3; margin-top: 15px; margin-bottom: 15px;">
               <v-container>
                <b-row class="home-missao">
                   <b-col>
@@ -80,7 +92,7 @@
   import Toolbar from '../components/Toolbar'
   import Carousel from '../components/Carousel'
   import Rodape from '../components/Rodape'
-  
+  import CarouselProdutoHome from '../components/CarouselProdutoHome'
   
   export default {
     name: 'App',
@@ -88,7 +100,7 @@
       Toolbar,
       Carousel,
       Rodape,
-      
+      CarouselProdutoHome,
     },
     data (){
       return {
@@ -101,13 +113,17 @@
           ],
       }
     },
+
+    mounted(){
+        console.log(process.env.VUE_APP_TITLE)
+    }
       
 };
 </script>
 <style>
   .font-header{
-      font-size: 43px;
-      font-weight: 900;
+      font-size: 40px;
+      font-weight: 700;
       color: #512B42;
       font-family: system-ui;
   }
@@ -151,7 +167,6 @@
     padding:40px;
   }
   .video-home{
-    
     padding:25px;
     
   }

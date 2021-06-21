@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Home from '@/views/Home'
 import Sobre from '@/views/Sobre'
-import Produto from '@/views/Produto'
+import Produto from '@/views/Produtos'
 import Clientes from '@/views/Clientes'
 import Contato from '@/views/Contato'
 import Representante from '@/views/Representante'

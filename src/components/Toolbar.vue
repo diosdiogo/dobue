@@ -14,13 +14,16 @@
                     <span class="header-fone"> Seg - Sex: 07:45 – 12:00 | 13:15 – 17:45 </span>
                     
                     <v-spacer></v-spacer>
-                    <font-awesome-icon :icon="['fas', 'envelope']" class="icon"/> 
-                    <span style="margin-right:15px;"> contato@dobue.com.br</span>
-                    <a href=""><font-awesome-icon style="margin-right:15px;" :icon="['fab', 'facebook-f']" class="icon"/></a>
-                    <a href=""><font-awesome-icon :icon="['fab', 'instagram']" class="icon"/></a>
+                    <div class="social-toobar">
+                        <font-awesome-icon :icon="['fas', 'envelope']" class="icon"/> 
+                        <span style="margin-right:15px;"> contato@dobue.com.br</span>
+                        <a href="https://www.facebook.com/dobue.movelaria.39" class="link-rede-social"><font-awesome-icon style="margin-right:15px;" :icon="['fab', 'facebook-f']" class="icon"/></a>
+                        <a href="https://www.instagram.com/dobue_movelaria/" class="link-rede-social"><font-awesome-icon :icon="['fab', 'instagram']" class="icon"/></a>
+                    </div>
+                    
                 </v-container>
                 
-                </v-toolbar>
+            </v-toolbar>
                 
         </v-card>
         <v-container class="pa-0">
@@ -35,7 +38,7 @@
                         <b-nav-item to="/">HOME</b-nav-item>
                         <b-nav-item to="/sobre">SOBRE </b-nav-item>
                         <b-nav-item to="/produto">PRODUTOS</b-nav-item>
-                        <b-nav-item to="/clientes">CLIIENTES</b-nav-item>
+                        <b-nav-item to="/clientes">CLIENTES</b-nav-item>
                         <b-nav-item to="/representante">REPRESENTANTES</b-nav-item>
                         <b-nav-item to="/contato">CONTATO</b-nav-item>
                     </b-navbar-nav>
@@ -77,6 +80,9 @@
         color: #000;
         font-weight: 600;
     }
+    .link-rede-social{
+        color: #fff;
+    }
     @media (max-width: 980px) {
         .logo-dobue{
             width: 150px !important;
@@ -85,6 +91,11 @@
     @media(max-width: 760px){
         .header-fone{
             display: none;
+        }
+        .social-toobar{
+            display: flex;
+            align-items: flex;
+            margin-top: 8px;
         }
     }
 </style>

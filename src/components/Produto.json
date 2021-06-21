@@ -1,0 +1,92 @@
+{
+    "group":[
+        {"id": 1, "descricao": "Cadeiras", "img":"assets/Cadeiras/Cad_Athenas_castanho_tec_grafite.jpg", "alt": "Cadeiras"},
+        {"id": 2, "descricao": "Mesas", "img":"assets/Mesas/Mesa_Dubai_1,60x0,90_Mell_Off_Cad_Athenas_tec_Bege.jpg", "alt": "Mesas"},
+        {"id": 3, "descricao": "Buffet", "img":"assets/Buffets/Buffet_Prisma_castanho_branco_off.jpg", "alt": "Buffet"},
+        {"id": 4, "descricao": "Cabeceiras", "img":"assets/Cabeceiras/Cab_Berlim.jpg", "alt": "Cabeceiras"},
+        {"id": 5, "descricao": "Painel", "img":"assets/Paineis/Painel_Munique_Preto.jpg"}
+    ],
+    "produtos":[
+        {"parte":"Cadeiras"},
+        {
+            "id": 1, 
+            "grupo": 1, 
+            "produto": "Cadeira Dubai cedro Tec Bege", 
+            "descricao":"It is a long established fact that a reader will be distracted by the readable",
+            "dimensoes": "Altura: 102; Largura: 42; Profundida: 60",
+            "materiais": "Estrutura: MDF e madeira; Revestimento: 100% poliéster; Assento/encosto: Espuma D-20",
+            "embalagem": "Volume: 1; Qts. por embalagem: 2; Cubagem: 0,1359m3; Peso: 19,5Kg",
+            "img": "assets/Cadeiras/Cadeira_Dubai_cedro_Tec_Bege.jpg",
+            "cores": [
+                {"id": 1, "descricao": "Cedro", "cor": "#6a2e23", "grupo": "Madeira"},
+                {"id": 2, "descricao": "Mell", "cor": "#DAA520", "grupo": "Madeira"},
+                {"id": 3, "descricao": "Castanho", "cor": "#7c3a00", "grupo": "Madeira"},
+                {"id": 4, "descricao": "Bege", "cor":"#f5f5dc", "grupo": "Tecido" },
+                {"id": 5, "descricao": "Castor", "cor": "#c4b6a8", "grupo": "Tecido"},
+                {"id": 6, "descricao": "Chocolate", "cor": "#d2691e", "grupo": "Tecido"}
+            ]
+        },
+        
+        {"parte":"Mesas"},
+
+        {
+            "id": 2, 
+            "grupo": 2, 
+            "produto": "Mesa Imola 1,60 Castanho Off- Cad Vigo tec Castor", 
+            "descricao":"It is a long established fact that a reader will be distracted by the readable",
+            "dimensoes": "Modelo 1,35 x 0,90(cód. 301140): (Ideal para 4 cadeiras); A: 80cm; L: 90cm; C: 135cm; Modelo 1,60 x 0,90(cód. 301160): (Ideal para 6 cadeiras); A: 80cm; L: 90cm; C: 160cm; Modelo 1,80 x 0,90(cód. 301180): (Ideal para 6 cadeiras); A: 80cm; L: 90cm; C: 180cm;",
+            "materiais": "Estrutura : MDF e madeira; Tampo: MDF 25mm; Pintura: UV texturizada e verniz vitreo;",
+            "embalagem": "Volumes: 2; Qts. por embalagem: 2; Cubagem: 0,1326m3; Peso: 38,3Kg",
+            "img": "assets/Mesas/Mesa_Imola_1,60_Castanho_Off_Cad_Vigo_tec_Castor.jpg",
+            "cores": [
+                {"id": 1, "descricao": "Cedro", "cor": "#6a2e23", "grupo": "Madeira"},
+                {"id": 2, "descricao": "Mell", "cor": "#DAA520", "grupo": "Madeira"},
+                {"id": 3, "descricao": "Castanho", "cor": "#7c3a00", "grupo": "Madeira"},
+                {"id": 4, "descricao": "Preto", "cor":"#000", "grupo": "Tampo(verniz vitreo)" },
+                {"id": 5, "descricao": "Off White", "cor": "#fff", "grupo": "Tampo(verniz vitreo)"}
+            ]
+        },
+        {"parte":"Buffet"},
+        {
+            "id": 3, 
+            "grupo": 3, 
+            "produto": "Buffet Curitiba G cedro - branco", 
+            "descricao":"It is a long established fact that a reader will be distracted by the readable",
+            "dimensoes": "Altura: 93cm; Largura: 36cm; Profundidade: 136cm",
+            "materiais": "Estrutura : MDF e madeira; Tampo: MDF 25mm; Pintura: UV texturizada e verniz vitreo;",
+            "embalagem": "Volumes: 1; Cubagem: 0,0534m3; Peso: 34,1Kg",
+            "img": "assets/Buffets/Buffet_Curitiba_Cedro.jpg",
+            "cores": [
+                {"id": 1, "descricao": "Cedro", "cor": "#6a2e23", "grupo": "Corpo"},
+                {"id": 2, "descricao": "Mell", "cor": "#DAA520", "grupo": "Corpo"},
+                {"id": 3, "descricao": "Castanho", "cor": "#7c3a00", "grupo": "Corpo"},
+                {"id": 4, "descricao": "Cedro", "cor": "#6a2e23", "grupo": "Porta"},
+                {"id": 5, "descricao": "Mell", "cor": "#DAA520", "grupo": "Porta"},
+                {"id": 6, "descricao": "Castanho", "cor": "#7c3a00", "grupo": "Porta"},
+                {"id": 7, "descricao": "Preto", "cor":"#000", "grupo": "Porta" },
+                {"id": 8, "descricao": "Off White", "cor": "#fff", "grupo": "Porta"}
+            ]
+        },
+        {"parte":"Cabeceiras"},
+        {
+            "id": 3, 
+            "grupo": 4, 
+            "produto": "Cabeceiras Istambul e bau Istambul cópia", 
+            "descricao":"It is a long established fact that a reader will be distracted by the readable",
+            "dimensoes": "Altura: 93cm; Largura: 36cm; Profundidade: 136cm",
+            "materiais": "Estrutura : MDF e madeira; Tampo: MDF 25mm; Pintura: UV texturizada e verniz vitreo;",
+            "embalagem": "Volumes: 1; Cubagem: 0,0534m3; Peso: 34,1Kg",
+            "img": "assets/Cabeceiras/Cab_Istambul_e_bau_Istambul_copia.jpg",
+            "cores": [
+                {"id": 1, "descricao": "Cedro", "cor": "#6a2e23", "grupo": "Corpo"},
+                {"id": 2, "descricao": "Mell", "cor": "#DAA520", "grupo": "Corpo"},
+                {"id": 3, "descricao": "Castanho", "cor": "#7c3a00", "grupo": "Corpo"},
+                {"id": 4, "descricao": "Cedro", "cor": "#6a2e23", "grupo": "Porta"},
+                {"id": 5, "descricao": "Mell", "cor": "#DAA520", "grupo": "Porta"},
+                {"id": 6, "descricao": "Castanho", "cor": "#7c3a00", "grupo": "Porta"},
+                {"id": 7, "descricao": "Preto", "cor":"#000", "grupo": "Porta" },
+                {"id": 8, "descricao": "Off White", "cor": "#fff", "grupo": "Porta"}
+            ]
+        }
+    ]
+}

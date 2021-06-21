@@ -26,7 +26,7 @@
                         <template #first>
                             <b-form-select-option :value="null" disabled>-- REPRESENTANTES --</b-form-select-option>
                         </template>
-                         <b-form-select-option v-for="(i,index) in representantes" :key="index" :value="i">{{ i.representante }}</b-form-select-option>
+                         <b-form-select-option v-for="(i,index) in representantes" :key="index" :value="i" class="select-representante" style="text-transform: uppercase;">{{ i.representante }}</b-form-select-option>
                     </b-form-select>
 
                     <div class="map-card-select">
@@ -60,12 +60,22 @@
                 mapaRepesentante: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.916004405069!2d-51.557155485549586!3d-23.31880615856341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecb058572434ff%3A0xa67a672feeeb754a!2sAv.%20Pres.%20Campos%20S%C3%A1les%2C%2045%20-%20Industrial%20Novo%2C%20Sab%C3%A1udia%20-%20PR%2C%2086720-000!5e0!3m2!1spt-BR!2sbr!4v1620981495304!5m2!1spt-BR!2sbr',
                 representantes:[
                     {
-                        id: 1 ,
+                        id: 1,
+                        rota: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1828.605360840809!2d-51.45062174678848!3d-23.560874219745227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ec9be0d9b5b959%3A0x2dd5502c5f5a520!2sR.%20Humberto%20Contato%2C%20400%20-%20Jardim%20Paulista%2C%20Apucarana%20-%20PR%2C%2086808-310!5e0!3m2!1spt-BR!2sbr!4v1621863451511!5m2!1spt-BR!2sbr',
+                        representante: 'Ataidemoveis Representações Comerciais de Moveis'
+                    },
+                    {
+                        id: 2,
                         rota:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.2495525655954!2d-51.083075285367805!3d-29.538226014874883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951948c7438c9777%3A0x1c15493884200b36!2sR.%20Imac.%20Concei%C3%A7%C3%A3o%2C%2088%2C%20Morro%20Reuter%20-%20RS%2C%2093990-000!5e0!3m2!1spt-BR!2sbr!4v1620983788513!5m2!1spt-BR!2sbr',
                         representante:'DMC HOME COMERCIO E REPRESENTAÇÕES'
                     },
                     {
-                        id: 1 ,
+                        id: 3,
+                        rota: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.636845428666!2d-51.44614008554724!3d-23.401351361586638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eca3f0e6a8f9cb%3A0x63580704b844e250!2sR.%20Fruteira%2C%20415%20-%20Parque%20Veneza%2C%20Arapongas%20-%20PR%2C%2086701-650!5e0!3m2!1spt-BR!2sbr!4v1621863760183!5m2!1spt-BR!2sbr',
+                        representante: 'Elizete Cortez Caminha'
+                    },
+                    {
+                        id: 4,
                         rota:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.385551193823!2d-49.32724278570397!3d-16.707603650526256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef660259aa535%3A0xac3764c4fe6e4d96!2sR.%20CP-19%2C%2050%20-%20Res.%20Celina%20Park%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1620984160623!5m2!1spt-BR!2sbr',
                         representante:'Gilmar Agassi Evaristo Prestadora de Serviços'
                     },
@@ -129,6 +139,9 @@
     }
     .map-card-select{
         display:none;
+    }
+    .select-representante select{
+        text-transform: uppercase;
     }
     @media(max-width: 760px){
         .contato-row{

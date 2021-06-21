@@ -54,7 +54,7 @@
                                 <b-form-textarea
                                     id="textarea"
                                     v-model="form.msg"
-                                    placeholder="Sua mensaggem..."
+                                    placeholder="Sua mensagem..."
                                     rows="3"
                                     max-rows="6"
                                     ></b-form-textarea>

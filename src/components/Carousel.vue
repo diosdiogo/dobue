@@ -11,10 +11,11 @@
             img-height="480"
             style="text-shadow: 1px 1px 2px #333;"
            >
-                 <b-carousel-slide  
+            <b-carousel-slide  
                  v-for="(item,i) in imageCarousel"
                 :key="i"
-                :img-src="require(`@/`+item.src)" :alt="i.alt"> </b-carousel-slide>
+                :img-src="require(`@/`+item.src)" :alt="i.alt"> 
+            </b-carousel-slide>
         </b-carousel>
     </div>
 </template>
