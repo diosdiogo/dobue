@@ -48,6 +48,7 @@
                     //          redes social rodapé                      //
                     ---------------------------------------------------->
                 <b-row>
+                    
                      <b-col>
                         <a href="https://www.facebook.com/dobue.movelaria.39" class="link-rede-social"><font-awesome-icon style="margin-right:5px; color: #fff" :icon="['fab', 'facebook-f']" class="icon"/> 
                         <span style="margin-right:18px;"> Dobue Movelaria </span></a>
@@ -58,6 +59,7 @@
                     </b-col>
                 </b-row>
             </v-container>
+             
         </v-main>
 
         <!---------------------------------------------------//

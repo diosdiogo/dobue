@@ -13,7 +13,7 @@
                                 <b-col cols="1">
                                 </b-col>
                                 <b-col>
-                                    <span class="rodape-info">Rua Campos Sales, 45 <br /> Parque Industrial Novo <br /> Sabáudia - PR</span>
+                                    <span class="rodape-info">{{ contato.endereco }}</span>
                                 </b-col>
                             </b-row>
                             <b-row class="contato">
@@ -23,7 +23,7 @@
                                             <font-awesome-icon :icon="['fas', 'envelope']" style=" margin-top: 15px; font-size: 25px; margin-right: 10px;"/>
                                         </b-col>
                                         <b-col>
-                                            <span class="rodape-info">sac@dobue.com.br  <br /> contato@dobue.com.br</span>
+                                            <span class="rodape-info">{{ contato.email_principal }}  <br /> {{ contato.email_secundario }}</span>
                                         </b-col>
                                     </b-row>
                                 </b-col>
@@ -35,7 +35,7 @@
                                             <font-awesome-icon :icon="['fas', 'phone-alt']" class="icon-contato"/>
                                         </b-col>
                                         <b-col>
-                                            <span class="rodape-info">( 43 ) 3151-1611</span>
+                                            <span class="rodape-info">{{ contato.telefone_principal }}</span>
                                         </b-col>
                                     </b-row>
                                 </b-col>
@@ -45,7 +45,7 @@
                         //                     Logo rodapé                  //
                         ---------------------------------------------------->
                         <b-col cols="4" class="text-center">
-                            <img src="@/assets/logo-2.png" alt="" class="logo-rodape">
+                            <img :src=modulo.modulo_aparencia_rodape alt="" class="logo-rodape">
                         </b-col>
                         
                         <!---------------------------------------------------//
@@ -55,13 +55,13 @@
                         <b-col cols="4">
                             <b-row class="text-right">
                                 <b-col>
-                                    <a href="https://www.facebook.com/dobue.movelaria.39" class="link-rede-social"><font-awesome-icon style="margin-right:5px; color: #fff" :icon="['fab', 'facebook-f']" class="icon"/> 
+                                    <a :href=social[0].social_url class="link-rede-social"><font-awesome-icon style="margin-right:5px; color: #fff" :icon="['fab', 'facebook-f']" class="icon"/> 
                                     <span style="margin-right:18px; color: #fff"> Dobue Movelaria </span></a>
                                 </b-col>
                             </b-row>
                             <b-row class="text-right">
                                 <b-col>
-                                    <a href="https://www.instagram.com/dobue_movelaria/" class="link-rede-social"><font-awesome-icon style="margin-right:5px; color:#fff" :icon="['fab', 'instagram']" class="icon"/> 
+                                    <a :href=social[1].social_url class="link-rede-social"><font-awesome-icon style="margin-right:5px; color:#fff" :icon="['fab', 'instagram']" class="icon"/> 
                                     <span style="color: #fff"> @dobue_movelaria </span></a>
                                 </b-col>
                             </b-row>
@@ -100,11 +100,47 @@
 
 <script>
 import RodapeMobile from '../components/RodapeMobile'
-
+import axios from 'axios'
 export default {
+    
     components: {
       RodapeMobile
     },
+    data(){
+        return {
+            contato:{},
+            social:{},
+            modulo:{}
+        }
+    },
+    methods: {
+    },
+    created(){
+         const headers = { 
+            "Content-Type": "application/json"
+            }
+            axios.get('https://api.dobue.com.br/contato.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.contato = response.data;
+                }
+            }).bind(this)),
+
+            axios.get('https://api.dobue.com.br/social.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.social = response.data;
+                }
+            }).bind(this)),
+
+            axios.get('https://api.dobue.com.br/modulo.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.modulo = response.data;
+                }
+            }).bind(this))
+        
+    }
 }
 </script>
 

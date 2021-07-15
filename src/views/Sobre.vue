@@ -8,19 +8,16 @@
             //          História                                //
             ---------------------------------------------------->
                 <b-row class="text-center">
-                    <b-col><h1 class="font-header">nossa historia</h1></b-col>
+                    <b-col><h1 class="font-header">{{ sobre.titulo_historia }}</h1></b-col>
                 </b-row>
                 <b-row class="sobre-missao">
                     <b-col class="text-sobre">
-                            <span>Fundada em 2.005, a Dobuê Movelaria iniciou suas atividades nas instalações de uma antiga granja, na cidade de Sabáudia, interior do estado do Paraná, na época a empresa contava com uma pequena equipe e estrutura física limitada, a produção era exclusivamente dedicada à cabeceiras para box.<br />
-                            Em junho de 2.007, a empresa mudou-se para instalações próprias, e desde então investe ininterruptamente em tecnologia, estrutura e na equipe de trabalhadores. <br />
-                            No ano de 2.016 inserimos em nossa linha de produtos as salas de jantar.<br />
-                            Hoje contamos com mais 10.000 m² de área produtiva, entre indústria e escritório, e um quadro de mais 100 colaboradores.<br />
-                            Ao longo dos 16 anos presente no mercado da indústria e comércio de móveis a Dobuê sempre se destacou pela qualidade dos seus produtos e ganha cada vez mais espaço no cenário nacional, sempre trabalhando para atender a todos com excelência e qualidade.
+                            <span>
+                                {{ sobre.descricao_historia }}
                             </span>
                     </b-col>
                     <b-col>
-                        <img src="@/assets/dobue.png" alt="Dobue" class="b-dobue float-right">
+                        <img :src=sobre.imagem_video alt="Dobue" class="b-dobue float-right">
                     </b-col>
                 </b-row>
 
@@ -29,25 +26,25 @@
                 ---------------------------------------------------->
                 <b-row class="sobre-card-dobue">
                   <b-col>
-                      <b-card class="card-sobre" title="nossa MISSÃO">
+                      <b-card class="card-sobre" :title=sobre.titulo_missao>
                         <b-card-text>
-                          Nossa missão é ter orgulho no que fazemos, fabricar nossos móveis com a máxima qualidade e oferecer conforto e segurança aos nossos clientes.
+                          {{ sobre.descricao_missao }}
                         </b-card-text>
                       </b-card>
                   </b-col>
 
                   <b-col>
-                    <b-card class="card-sobre" title="nossa visão">
+                    <b-card class="card-sobre" :title=sobre.titulo_visao>
                       <b-card-text>
-                        Consolidar nossa marca no mercado, oferecendo aos nossos clientes e parceiros relações transparentes e duradouras, focando no desenvolvimento sustentável e traçando estratégias para suprir as necessidades da empresa e do mercado.
+                        {{ sobre.descricao_visao }}
                       </b-card-text>
                     </b-card>
                   </b-col>
 
                   <b-col>
-                    <b-card class="card-sobre" title="nossos valores">
+                    <b-card class="card-sobre" :title=sobre.titulo_valores>
                       <b-card-text>
-                        A empresa preza pela integridade, colaboração, ética, paixão, responsabilidade, respeito, comprometimento e qualidade.
+                        {{ sobre.descricao_visao }}
                       </b-card-text>
                     </b-card>
                   </b-col>
@@ -63,7 +60,7 @@
 //https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
   import Toolbar from '../components/Toolbar'
   import Rodape from '../components/Rodape'
-
+  import axios from 'axios'
   export default {
     name: 'App',
 
@@ -74,8 +71,20 @@
     data (){
      
       return {
-
+        sobre:{}
       }
+    },
+    created(){
+        const headers = { 
+        "Content-Type": "application/json"
+        }
+        axios.get('https://api.dobue.com.br/institucional.php','', headers)
+        .then((function (response) {
+            if(response.status == 200) {
+                this.sobre = response.data;
+            }
+            
+        }).bind(this))
     }
     
 };

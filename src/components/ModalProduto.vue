@@ -3,7 +3,18 @@
     <b-modal id="modalProduto" hide-footer>
        <div>
             <b-card-group deck>
-                <b-card :img-src="require('@/'+ produto[next].img)" img-alt="Card image" img-top>
+                
+                <b-card :img-src=produto[next].img img-alt="Card image" img-top>
+
+                    <b-button-toolbar key-nav aria-label="Toolbar with button groups" style="">
+                        <b-button-group class="mx-1">
+                            <b-button @click="anterior(produto.length)">&laquo;</b-button>
+                            <b-button-group class="mx-1">
+                            </b-button-group>
+                            <b-button  @click="proximo(produto.length)">&raquo;</b-button>
+                        </b-button-group>
+                    </b-button-toolbar>
+
                     <b-card-text>
                         <b-row>
                             <b-col>
@@ -24,7 +35,9 @@
                         </b-row>
                     </b-card-text>
                 </b-card>
+                
             </b-card-group>
+            
        </div>
     </b-modal>
 </div>
@@ -44,6 +57,18 @@ export default {
     },
     beforeMount(){
         
+    },
+    methods: {
+        proximo(e){
+            if(this.next < e-1){
+                this.next ++
+            }
+        },
+        anterior(e){
+            if(this.next >= e-1){
+                this.next = this.next -1
+            }
+        }
     }
 
 }
@@ -66,4 +91,7 @@ export default {
     #modalProduto{
         color: #fff;
     }
+.btn-toolbar {
+    justify-content: center;
+}
 </style>

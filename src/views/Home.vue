@@ -5,10 +5,10 @@
 
          <v-container class="pa-0">
             <b-row class="text-center">
-                <b-col><h1 class="font-header">PRODUTOS</h1></b-col>
+                <b-col><h1 class="font-header">{{ pagina.titulo }}</h1></b-col>
             </b-row>
             <b-row class="text-center">
-                <b-col><span class="font-description">Nossos produtos, cabeceiras, painéis, mesas, cadeiras e buffets.</span></b-col>
+                <b-col><span class="font-description">{{ pagina.descriao_titulo }}</span></b-col>
             </b-row>
 
              <!--b-carousel 
@@ -61,7 +61,7 @@
                       <b-embed
                         type="iframe"
                         aspect="16by9"
-                        src="https://www.youtube.com/embed/vAlk6fStMaQ?rel=0"
+                        :src=pagina.video
                         allowfullscreen
                       ></b-embed> 
                     </div>
@@ -69,12 +69,10 @@
                   </b-col>
                   <b-col>
                     <div>
-                      <b-card title="NOSSA MISSÃO" id="card-missao">
+                      <b-card :title=pagina.titulo2 id="card-missao">
 
                         <b-card-text>
-                         Nossa missão é ter orgulho no que fazemos, 
-                         fabricar nossos móveis com a máxima qualidade e oferecer conforto e 
-                         segurança aos nossos clientes.
+                         {{ pagina.descricao2 }}
                         </b-card-text>
                       </b-card>
                     </div>
@@ -93,7 +91,7 @@
   import Carousel from '../components/Carousel'
   import Rodape from '../components/Rodape'
   import CarouselProdutoHome from '../components/CarouselProdutoHome'
-  
+  import axios from 'axios'
   export default {
     name: 'App',
     components: {
@@ -106,16 +104,21 @@
       return {
           slide: 0,
           sliding: null,
-          imageCarousel:[
-              {src: 'assets/Painel_Toronto.jpg', alt: "Painel Toronto"},
-              {src: 'assets/Painel_Munique.jpg', alt: "Painel Monique"},
-              {src: 'assets/Painel_Istambul.jpg', alt: "Painel Istambul"},
-          ],
+          pagina: {}
       }
     },
 
-    mounted(){
-        console.log(process.env.VUE_APP_TITLE)
+    created(){
+        const headers = { 
+        "Content-Type": "application/json"
+        }
+        axios.get('https://api.dobue.com.br/home.php','', headers)
+        .then((function (response) {
+            if(response.status == 200) {
+                this.pagina = response.data;
+            }
+            
+        }).bind(this))
     }
       
 };
@@ -176,7 +179,10 @@
     color: #512B42;
     font-family: system-ui;
   }
-  
+  .card-text:last-child {
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
 @media(max-width: 760px){
   .home-missao{
       display: block !important;

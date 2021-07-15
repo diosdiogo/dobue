@@ -8,7 +8,7 @@
             <v-toolbar dense class="toolbar">
                 <v-container class="content-toobar">
                     <font-awesome-icon :icon="['fas', 'phone-alt']" class="icon"/> 
-                    <span style="margin-right:8%;"> ( 43 ) 3151-1611 </span>
+                    <span style="margin-right:8%;"> {{ contato.telefone_principal }} </span>
 
                     <font-awesome-icon :icon="['far', 'clock']" class="icon header-fone"/> 
                     <span class="header-fone"> Seg - Sex: 07:45 – 12:00 | 13:15 – 17:45 </span>
@@ -16,9 +16,9 @@
                     <v-spacer></v-spacer>
                     <div class="social-toobar">
                         <font-awesome-icon :icon="['fas', 'envelope']" class="icon"/> 
-                        <span style="margin-right:15px;"> contato@dobue.com.br</span>
-                        <a href="https://www.facebook.com/dobue.movelaria.39" class="link-rede-social"><font-awesome-icon style="margin-right:15px;" :icon="['fab', 'facebook-f']" class="icon"/></a>
-                        <a href="https://www.instagram.com/dobue_movelaria/" class="link-rede-social"><font-awesome-icon :icon="['fab', 'instagram']" class="icon"/></a>
+                        <span style="margin-right:15px;"> {{ contato.email_principal }}</span>
+                        <a :href=social[0].social_url class="link-rede-social"><font-awesome-icon style="margin-right:15px;" :icon="['fab', 'facebook-f']" class="icon"/></a>
+                        <a :href=social[1].social_url class="link-rede-social"><font-awesome-icon :icon="['fab', 'instagram']" class="icon"/></a>
                     </div>
                     
                 </v-container>
@@ -29,18 +29,19 @@
         <v-container class="pa-0">
             <b-navbar toggleable="lg">
                 <b-navbar-brand href="/">
-                    <img src="@/assets/logo-dobue.png" alt="Logo-Dobue" class="logo-dobue">
+                    <img :src=modulo.modulo_aparencia_logo alt="Logo-Dobue" class="logo-dobue">
                 </b-navbar-brand>
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
                 <b-collapse id="nav-collapse" is-nav>
                     <!-- Right aligned nav items -->
                     <b-navbar-nav class="ml-auto">
-                        <b-nav-item to="/">HOME</b-nav-item>
-                        <b-nav-item to="/sobre">SOBRE </b-nav-item>
-                        <b-nav-item to="/produto">PRODUTOS</b-nav-item>
-                        <b-nav-item to="/clientes">CLIENTES</b-nav-item>
-                        <b-nav-item to="/representante">REPRESENTANTES</b-nav-item>
-                        <b-nav-item to="/contato">CONTATO</b-nav-item>
+                        <b-nav-item to="/">{{ menu.modulo1 }}</b-nav-item>
+                        <b-nav-item to="/sobre">{{ menu.modulo2 }} </b-nav-item>
+                        <b-nav-item to="/produto">{{ menu.modulo3 }}</b-nav-item>
+                        <b-nav-item to="/clientes">{{ menu.modulo4 }}</b-nav-item>
+                        <b-nav-item to="/representante">{{ menu.modulo5 }}</b-nav-item>
+                        <b-nav-item to="/contato">{{ menu.modulo6 }}</b-nav-item>
+                        <b-nav-item to="/download">{{ menu.modulo7 }}</b-nav-item>
                     </b-navbar-nav>
                 </b-collapse>
             </b-navbar>
@@ -50,9 +51,52 @@
 
 <script>
 
-    export default {
+import axios from 'axios'
+   export default {
+       name: 'menu',
+        components: {},
+        data(){
+            return {
+                contato:{},
+                menu:{},
+                social:{},
+                modulo:{}
+            }
+        },
+        methods: {
+        },
+        created(){
+            const headers = { 
+            "Content-Type": "application/json"
+            }
+            axios.get('https://api.dobue.com.br/contato.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.contato = response.data;
+                }
+            }).bind(this)),
 
-    }
+            axios.get('https://api.dobue.com.br/menu.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.menu = response.data;
+                }
+            }).bind(this)),
+            axios.get('https://api.dobue.com.br/social.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.social = response.data;
+                }
+            }).bind(this)),
+
+            axios.get('https://api.dobue.com.br/modulo.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.modulo = response.data;
+                }
+            }).bind(this))
+        }
+    };
 </script>
 <style scoped>
     .icon{

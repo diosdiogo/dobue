@@ -9,13 +9,13 @@
             ---------------------------------------------------->
                 <b-row class="text-center" style="margin-top: 15px;">
                     <b-col>
-                        <h1 class="font-header">clientes</h1>
-                        <span>It is a long established fact that a reader will be distracted by</span>
+                        <h1 class="font-header">{{ paginaC.titulo }}</h1>
+                        <span>{{ paginaC.descricao }}</span>
                     </b-col>
                 </b-row>
                 <b-row style="margin-top: 30px; margin-bottom:30px;">
                     <b-col cols="4" v-for="(item,i) in clientes" :key="i">
-                        <img :src="require(`@/`+item.src)" :alt="item.alt" class="image-cliente">
+                        <img :src=item.src :alt="item.alt" class="image-cliente">
                     </b-col>
                 </b-row>
 
@@ -33,6 +33,7 @@
 //https://xd.adobe.com/view/d2cbe841-8e9f-4465-a7e9-128875e0a186-8798/specs/
   import Toolbar from '../components/Toolbar'
   import Rodape from '../components/Rodape'
+  import axios from 'axios'
 
   export default {
     name: 'App',
@@ -44,12 +45,36 @@
     data (){
      
       return {
-          clientes:[
-              {src:'assets/logo-esplanada-negativo.png', alt:'esplanada'},
-              {src:'assets/MultilojaLogoAzulsemBox.png', alt:'esplanada'},
-              {src: 'assets/logo-benoit.png', alt:'Benolt'}
-          ]
+          clientes:[],
+          paginaC: {}
       }
+    },
+    created(){
+        const headers = { 
+        "Content-Type": "application/json"
+        }
+        axios.get('https://api.dobue.com.br/pageCliente.php','', headers)
+        .then((function (response) {
+            if(response.status == 200) {
+                this.paginaC = response.data;
+            }
+            
+        }).bind(this)),
+      
+        axios.get('https://api.dobue.com.br/clientes.php','', headers)
+        .then((function (response) {
+            var retorno
+            if(response.status == 200) {
+              retorno = response.data;
+              retorno.forEach((value, index) => {
+                this.clientes.push({
+                  src: value.logo,
+                  alt: value.nome
+                })
+              })
+            }
+            
+        }).bind(this))
     }
     
 };

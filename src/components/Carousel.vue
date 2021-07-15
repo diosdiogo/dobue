@@ -14,13 +14,14 @@
             <b-carousel-slide  
                  v-for="(item,i) in imageCarousel"
                 :key="i"
-                :img-src="require(`@/`+item.src)" :alt="i.alt"> 
+                :img-src="item.src" :alt="i.alt"> 
             </b-carousel-slide>
         </b-carousel>
     </div>
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
          data() {
             return {
@@ -33,6 +34,20 @@
                 ]
             }
         },
+        methods: {
+        },
+        created(){
+            const headers = { 
+            "Content-Type": "application/json"
+            }
+            axios.get('https://api.dobue.com.br//slide.php','', headers)
+            .then((function (response) {
+                if(response.status == 200) {
+                    this.imageCarousel = response.data;
+                }
+                
+            }).bind(this))
+        }
     }
 </script>
 

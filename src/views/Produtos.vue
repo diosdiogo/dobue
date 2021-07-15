@@ -9,22 +9,22 @@
             ---------------------------------------------------->
                 <b-row class="text-center" style="margin-top: 15px;">
                     <b-col>
-                        <h1 class="font-header">produtos</h1>
-                        <span>It is a long established fact that a reader will be distracted by</span>
+                        <h1 class="font-header">{{pagina.titulo}}</h1>
+                        <span>{{pagina.descricao}}</span>
                     </b-col>
                 </b-row>
                 <div class="card-subgrupo" style="margin-top: 15px; margin-bottom:15px;">
-                    <div class="painel-subgrupo" :key="i.id" v-for="(i) in group" cols="6">
+                    <div class="painel-subgrupo" :key="i.grupo_id" v-for="(i) in group" cols="6">
                       <b-card
                         overlay
-                        :img-src="require( '@/' + i.img )"
+                        :img-src=i.grupo_image
                         img-alt="Card Image"
                         text-variant="white"
                         class="card-grupo"
                         @click="buscarProduto(i)"
                       >
                         <div class="descricao-subgrupo">
-                            <span class="text-descricao-subgrupo">{{ i.descricao }}</span>
+                            <span class="text-descricao-subgrupo">{{ i.grupo_descricao }}</span>
                         </div>
                       </b-card>
                     </div>
@@ -43,8 +43,7 @@
   import Rodape from '@/components/Rodape'
   import ModalProduto from '@/components/ModalProduto'
   import Json from '@/components/Produto.json'
-
-  //import axios from 'axios'
+  import axios from 'axios'
 
   export default {
     name: 'App',
@@ -57,54 +56,82 @@
     data (){
      
       return {
-        group: Json.group,
-        produtos: Json.produtos,
+        group: {},
         produto:  [],
+        pagina: {},
         dimensoes:[],
         materiais:[],
         embalagem:[]
       }
     },
     mounted() {
-      this.group.sort((a, b) => {
-        if(a.descricao > b.descricao)
-          return 1
-        if(a.descricao < b.descricao)
-          return -1
-        return 0
-      });
-
-      const dataGrupo = {
-          lista:'grupo'
-       }
-
       const headers = { 
-       "Content-Type": "application/json"
-      }
-      // axios.post('http://localhost:8080/admin/', dataGrupo, headers)
-      // .then(function (response) {
-        
-      //   console.log(response);
-      // })
+        "Content-Type": "application/json"
+        }
+
+      axios.get('https://api.dobue.com.br/grupo.php','', headers)
+        .then((function (response) {
+          if(response.status == 200) {
+              this.group = response.data;
+            this.group.sort((a, b) => {
+              if(a.descricao > b.descricao)
+                return 1
+              if(a.descricao < b.descricao)
+                return -1
+              return 0
+            });
+          }
+            
+        }).bind(this)),
+
+        axios.get('https://api.dobue.com.br/pageProduto.php','', headers)
+        .then((function (response) {
+          if(response.status == 200) {
+              this.pagina = response.data;
+          }
+            
+        }).bind(this))
     },
     methods: {
       buscarProduto(e){
-        const produto   = [];
-        const dimensoes = [];
+        const headers = { 
+        "Content-Type": "application/json"
+        }
 
-        this.produtos.map(function(value, key){
-          if(e.id == value.grupo){
-            produto.push(value)
-          }
-        })
-        this.produto = produto
-        console.log(this.produto)
-        // if(this.produto.length > 0){
-        //     dimensoes =  produto.dimensoes.split(";")
-        // }
-        // console.log(dimensoes)
+      axios.get('https://api.dobue.com.br/produto_by_grupo.php?grupo='+e.grupo_id+'','', headers)
+        .then((function (response) {
+            if(response.status == 200) {
+                var retorno = response.data;
+                this.produto = [];
+                var cores = []
+                retorno.forEach((value, index) => {
+                  cores = [],
+                  value['0'].grupoCores.forEach((grupoCor, keyGrupoCor) =>{
+                    grupoCor['0'].forEach((cor, keyCor) =>{
+                       cores.push({
+                         id: cor.id,
+                         descricao: cor.descricao,
+                         cor: cor.codigo,
+                         grupo: grupoCor.grupoNome
+                       })
+                    })
+                  })
+                  this.produto.push({
+                    id: value.produto_id,
+                    produto: value.produto_titulo,
+                    descricao: value.produto_descricao,
+                    dimensoes: value.produto_tamanho,
+                    materiais: value.produto_material,
+                    embalagem: value.produto_embalagem,
+                    img: value.produto_imagem,
+                    cores: cores
+                  })
+                })
+                this.$bvModal.show('modalProduto')
+            }
+            
+        }).bind(this))
 
-        this.$bvModal.show('modalProduto')
       }
     }
     
