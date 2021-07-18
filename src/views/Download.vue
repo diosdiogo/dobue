@@ -5,23 +5,26 @@
             <v-container class="pb-5">
 
             <!---------------------------------------------------//
-            //          História                                //
+            //          titulo pagina                                //
             ---------------------------------------------------->
                 <b-row class="text-center" style="margin-top: 15px;">
                     <b-col>
-                        <h1 class="font-header">{{ paginaC.titulo }}</h1>
-                        <span>{{ paginaC.descricao }}</span>
+                        <h1 class="font-header">{{ paginaD.titulo }}</h1>
+                        <span>{{ paginaD.descricao }}</span>
                     </b-col>
                 </b-row>
-                <b-row style="margin-top: 30px; margin-bottom:30px;">
-                    <b-col cols="4" v-for="(item,i) in clientes" :key="i">
-                        <img :src=item.src :alt="item.alt" class="image-cliente">
-                    </b-col>
-                </b-row>
+                <div>
+                </div>
 
                 <!---------------------------------------------------//
-                //          Missão visão valores                    //
-                ---------------------------------------------------->
+                //          Lista titulo                            //
+                -------------------------------------------------- -->
+
+                <b-container class="bv-example-row">
+                    <b-row>
+
+                    </b-row>
+                </b-container>
                
             </v-container>
         </v-main>
@@ -45,18 +48,18 @@
     data (){
      
       return {
-          clientes:[],
-          paginaC: {}
+          download:[],
+          paginaD: {}
       }
     },
     created(){
         const headers = { 
         "Content-Type": "application/json"
         }
-        axios.get('https://api.dobue.com.br/pageCliente.php','', headers)
+        axios.get('https://api.dobue.com.br/pageDownload.php','', headers)
         .then((function (response) {
             if(response.status == 200) {
-                this.paginaC = response.data;
+                this.paginaD = response.data;
             }
             
         }).bind(this)),
@@ -66,13 +69,7 @@
             var retorno
             if(response.status == 200) {
               retorno = response.data;
-              
-              retorno.forEach((value, index) => {
-                this.clientes.push({
-                  src: value.logo,
-                  alt: value.nome
-                })
-              })
+                console.log(retorno)
             }
             
         }).bind(this))

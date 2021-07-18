@@ -7,6 +7,7 @@ import Produto from '@/views/Produtos'
 import Clientes from '@/views/Clientes'
 import Contato from '@/views/Contato'
 import Representante from '@/views/Representante'
+import Download from '@/views/Download'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ const routes = [
         name: 'representante',
         path: '/representante',
         component: Representante
+    },
+    {
+        name: 'download',
+        path: '/download',
+        component: Download
     }
 ]
 
