@@ -2,29 +2,33 @@
     <div>
       <Toolbar style="margin-bottom:15px;"/>
         <v-main style="background-color:#F3F3F3">
-            <v-container class="pb-5">
+            <v-container class="pb-5 pag-download">
 
-            <!---------------------------------------------------//
-            //          titulo pagina                                //
-            ---------------------------------------------------->
-                <b-row class="text-center" style="margin-top: 15px;">
-                    <b-col>
-                        <h1 class="font-header">{{ paginaD.titulo }}</h1>
-                        <span>{{ paginaD.descricao }}</span>
+              <!---------------------------------------------------//
+              //          titulo pagina                                //
+              ---------------------------------------------------->
+              <b-row class="text-center" style="margin-top: 15px;">
+                  <b-col>
+                      <h1 class="font-header">{{ paginaD.titulo }}</h1>
+                      <span>{{ paginaD.descricao }}</span>
+                  </b-col>
+              </b-row>
+               
+
+              <!---------------------------------------------------//
+              //          Lista titulo                            //
+              -------------------------------------------------- -->
+
+              <b-container class="bv-example-row" style="margin-top: 15px;">
+                  <b-row>
+                    <b-col  v-for="(item,i) in download" style="display: flex; flex-wrap: wrap; justify-content: center; flex-direction: column; text-align: center;">
+                      <img src="@/assets/pdf_icon.png" width="100" style="margin: 0 auto;">
+                      <h4>{{ item.nome }}</h4>
+                      <a :href=item.arquivo target="_blank" download> Baixar </a>
                     </b-col>
-                </b-row>
-                <div>
-                </div>
-
-                <!---------------------------------------------------//
-                //          Lista titulo                            //
-                -------------------------------------------------- -->
-
-                <b-container class="bv-example-row">
-                    <b-row>
-
-                    </b-row>
-                </b-container>
+                    
+                  </b-row>
+              </b-container>
                
             </v-container>
         </v-main>
@@ -70,6 +74,16 @@
             if(response.status == 200) {
               retorno = response.data;
                 console.log(retorno)
+            }
+            
+        }).bind(this)),
+
+        axios.get('https://api.dobue.com.br/download.php','', headers)
+        .then((function (response) {
+            var retorno
+            if(response.status == 200) {
+              this.download = response.data;
+                console.log(this.download)
             }
             
         }).bind(this))
