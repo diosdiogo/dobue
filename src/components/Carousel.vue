@@ -40,7 +40,7 @@
             const headers = { 
             "Content-Type": "application/json"
             }
-            axios.get('https://api.dobue.com.br//slide.php','', headers)
+            axios.get('https://api.dobue.com.br/slide.php','', headers)
             .then((function (response) {
                 if(response.status == 200) {
                     this.imageCarousel = response.data;
