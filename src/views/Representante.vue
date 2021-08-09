@@ -169,6 +169,7 @@
             height: 400px;
         }
         .map-card-select{
+            margin-top: 20px;
             display:block;
         }
     }
